@@ -1,0 +1,45 @@
+extends common/layout
+
+block layout-content
+  .main-content
+    .container.mt-5
+      h1.page-title.text-center Add Product
+      form(action="/add", method="POST", enctype="multipart/form-data" class="add-form mb-5")
+        div
+            label(for="name") Name:
+            input(type="text", name="name", required)
+        div
+            label(for="category") Choose a category:
+            select(name="category" id="category" required)
+                option(value="") Select part category 
+                option(value="CPU") CPU
+                option(value="GPU") GPU
+                option(value="RAM") RAM
+                option(value="SSD") SSD
+        div
+            label(for="brand") Brand:
+            input(type="text", name="brand", required)
+        div
+            label(for="specifications") Specifications:
+            input(type="text", name="specifications", required)
+        div
+            label(for="price") Price:
+            input(type="number" step="0.01" name="price")
+        div.d-flex.align-items-center(style="gap: 10px ;")
+            label Image Source:
+            input(type="radio", name="imgSource", id="imgUrlRadio", value="url", checked, onchange="toggleImageInput()")
+            label(for="imgUrlRadio") URL
+            input(type="radio", name="imgSource", id="imgUploadRadio", value="upload", onchange="toggleImageInput()")
+            label(for="imgUploadRadio") Upload
+        div(id="imgUrlInput")
+            label(for="imgUrl") Image URL:
+            input(type="text", name="imgUrl")
+        div(id="imgUploadInput" style="display: none;")
+            label(for="imgUrl") Image Upload:
+            input(type="file", name="imgUrl")
+        div
+            button(type="submit") Add Product
+    a(href="/") Back to Home
+
+block append scripts
+  script(src="/js/add.js")

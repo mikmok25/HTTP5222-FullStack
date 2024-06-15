@@ -1,0 +1,24 @@
+extends common/layout
+
+block layout-content 
+  .main-content 
+    .container(style="margin-bottom: 60px")
+      h1.page-title.text-center Build List
+      each build in builds
+        .build.card.mb-4
+          .card-body
+            h2.card-title Build Name: #{build.buildName}
+            p.card-text CPU: #{build.cpu.name} ($#{build.cpu.price})
+            p.card-text GPU: #{build.gpu.name} ($#{build.gpu.price})
+            p.card-text RAM: #{build.ram.name} ($#{build.ram.price})
+            p.card-text SSD: #{build.ssd.name} ($#{build.ssd.price})
+            p.card-text Description: #{build.description}
+            p.card-text.total-price Total Price: $#{build.totalPrice.toFixed(2)}
+            .build-buttons.d-flex.align-items-center.gap-2
+              button(type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=`#updateBuildModal-${build._id}`) Update Build
+              button(type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=`#deleteBuildModal-${build.id}`) Delete Build
+        include common/build-modal.pug
+      a.back-to-home(href="/") Back to Home
+      
+block append scripts
+  script(src="/js/add.js")

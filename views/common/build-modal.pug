@@ -1,0 +1,60 @@
+div(class="modal fade" id=`deleteBuildModal-${build.id}` tabindex="-1" aria-labelledby=`deleteBuildModal-${build.id}` aria-hidden="true")
+    div(class="modal-dialog")
+        div(class="modal-content")
+            div(class="modal-header")
+                h5(class="modal-title" id=`deleteBuildModal-${build.id}`) Delete Build
+                button(type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close")
+            div(class="modal-body")
+                p Are you sure you want to delete #{build.buildName} Build?
+            div(class="modal-footer")
+                button(type="button" class="btn btn-secondary" data-bs-dismiss="modal") Close
+                form(action="/delete-build" method="POST" style="display:inline;")
+                    input(type="hidden" name="id" value=build._id)
+                    button(type="submit" class="btn btn-danger") Delete
+
+div(class="modal fade" id=`updateBuildModal-${build._id}` tabindex="-1" aria-labelledby=`updateBuildModalLabel-${build._id}` aria-hidden="true")
+  div(class="modal-dialog")
+    div(class="modal-content")
+      div(class="modal-header")
+        h5(class="modal-title" id=`updateBuildModalLabel-${build._id}`) Update Build
+        button(type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close")
+      div(class="modal-body")
+        form(action="/update-build" method="POST" onsubmit="return validateForm()")
+          input(type="hidden" name="id" value=build._id)
+          div
+            label(for="buildName") Name: 
+            input(type="text" name="buildName" value=build.buildName)
+          div
+            label(for="cpu") CPU:
+            select(name="cpu" class="component" onchange="updatePrice.call(this)" required)
+              option(value="" data-price="0") Select CPU
+              each product in products.filter(p => p.category === 'CPU')
+                option(value=product._id data-price=product.price selected=(product._id.toString() === build.cpu._id.toString()))= `${product.name} ($${product.price})`
+          div
+            label(for="gpu") GPU:
+            select(name="gpu" class="component" onchange="updatePrice.call(this)" required)
+              option(value="" data-price="0") Select GPU
+              each product in products.filter(p => p.category === 'GPU')
+                option(value=product._id data-price=product.price selected=(product._id.toString() === build.gpu._id.toString()))= `${product.name} ($${product.price})`
+          div
+            label(for="ram") RAM:
+            select(name="ram" class="component" onchange="updatePrice.call(this)" required)
+              option(value="" data-price="0") Select RAM
+              each product in products.filter(p => p.category === 'RAM')
+                option(value=product._id data-price=product.price selected=(product._id.toString() === build.ram._id.toString()))= `${product.name} ($${product.price})`
+          div
+            label(for="ssd") SSD:
+            select(name="ssd" class="component" onchange="updatePrice.call(this)" required)
+              option(value="" data-price="0") Select SSD
+              each product in products.filter(p => p.category === 'SSD')
+                option(value=product._id data-price=product.price selected=(product._id.toString() === build.ssd._id.toString()))= `${product.name} ($${product.price})`
+          div
+            label(for="description") Description:
+            textarea(name="description" placeholder="Submit a description for this build")= build.description
+          div
+            - var updatedTotalPrice = build.totalPrice;
+            p(class="totalPrice") Total Price: $#{updatedTotalPrice}
+            input(type="hidden" name="totalPrice" id=`totalPrice-${build._id}` value=updatedTotalPrice)
+          div(class="modal-footer")
+            button(type="button" class="btn btn-secondary" data-bs-dismiss="modal") Close
+            button(type="submit" class="btn btn-primary") Update

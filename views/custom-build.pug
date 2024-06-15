@@ -1,0 +1,45 @@
+extends common/layout
+
+block layout-content
+  .main-content
+    .container.mt-5.mb-5
+      h1 Custom Build 
+      form(action="/custom-build" method="POST" onsubmit="return validateForm()" class="add-build-form")
+        div
+          label(for="buildName") Build Name:
+          input(type="text" name="buildName" id="buildName")
+        div
+          label(for="cpu") CPU:
+          select(name="cpu" class="component" onchange="updatePrice.call(this)" required)
+            option(value="" data-price="0") Select CPU
+            each product in products.filter(p => p.category === 'CPU')
+              option(value=product._id data-price=product.price)= `${product.name} ($${product.price})`
+        div
+          label(for="gpu") GPU:
+          select(name="gpu" class="component" onchange="updatePrice.call(this)" required)
+            option(value="" data-price="0") Select GPU
+            each product in products.filter(p => p.category === 'GPU')
+              option(value=product._id data-price=product.price)= `${product.name} ($${product.price})`
+        div
+          label(for="ram") RAM:
+          select(name="ram" class="component" onchange="updatePrice.call(this)" required)
+            option(value="" data-price="0") Select RAM
+            each product in products.filter(p => p.category === 'RAM')
+              option(value=product._id data-price=product.price)= `${product.name} ($${product.price})`
+        div
+          label(for="ssd") SSD:
+          select(name="ssd" class="component" onchange="updatePrice.call(this)" required)
+            option(value="" data-price="0") Select SSD
+            each product in products.filter(p => p.category === 'SSD')
+              option(value=product._id data-price=product.price)= `${product.name} ($${product.price})`
+        div
+          label(for="description") Description:
+          textarea(name="description" placeholder="Submit a description for this build")
+        div
+          p(id="totalPrice" class="totalPrice") Total Price: $0.00
+        div
+          button(type="submit") Submit Custom Build
+    a(href="/") Back to Home
+
+block append scripts
+  script(src="/js/add.js")

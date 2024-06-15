@@ -1,0 +1,199 @@
+.navbar-custom {
+  background-color: #343a40; /* Dark background */
+  border-bottom: 3px solid #ffc107; /* Yellow border */
+}
+
+.navbar-custom .navbar-brand {
+  color: #ffc107; /* Yellow brand color */
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.navbar-custom .navbar-brand:hover {
+  color: #ffffff; /* White on hover */
+}
+
+.navbar-custom .navbar-nav .nav-link {
+  color: #ffffff; /* White links */
+  margin-right: 15px;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+  color: #ffc107; /* Yellow on hover */
+}
+
+.navbar-custom .navbar-toggler {
+  border: none; /* No border */
+}
+
+.navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 193, 7, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+body {
+  background-color: #f8f9fa; /* Light grey background */
+  font-family: "Roboto", sans-serif;
+}
+
+label {
+  margin-bottom: 0 !important;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ffc107;
+  border-radius: 10px;
+}
+
+.card-title {
+  color: #343a40;
+  font-weight: bold;
+}
+
+.card-text {
+  color: #6c757d;
+}
+
+.btn-custom {
+  background-color: #343a40;
+  color: #ffc107;
+  border: 1px solid #ffc107;
+}
+
+.btn-custom:hover {
+  background-color: #ffc107;
+  color: #343a40;
+  border: 1px solid #343a40;
+}
+
+.row.equal-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-4 {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 500px; /* Adjust this value as needed */
+}
+
+.card-img-top {
+  width: 100px;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+  width: 100%;
+  height: 200px;
+  padding: 30px;
+  object-fit: contain;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure space is used effectively */
+}
+
+.card-title {
+  margin-bottom: 10px; /* Adjust spacing as needed */
+}
+
+.card-text {
+  margin-bottom: 5px; /* Adjust spacing as needed */
+}
+
+/* Custom Modal Styles */
+.custom-modal .custom-modal-dialog {
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+.custom-modal .custom-modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  background-color: #343a40;
+  color: #ffc107;
+  border-bottom: none;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 15px 20px;
+}
+
+.modal-content {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+
+.modal-body form,
+.add-form,
+.add-build-form
+ {
+  background-color: #ffffff; /* White background */
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Groups */
+.modal-body form div,
+.add-form div,
+.add-build-form div {
+  margin-bottom: 15px;
+}
+
+/* Labels */
+.modal-body form label,
+.add-form label,
+.add-build-form label {
+  font-weight: bold;
+  color: #343a40; /* Dark text */
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Inputs */
+.modal-body form input[type="text"],
+.add-form input[type="text"],
+.add-build-form #buildName,
+.add-build-form textarea,
+.modal-body form input[type="number"],
+.add-build-form input[type="number"],
+.add-form input[type="number"],
+.modal-body form select,
+.add-form select,
+.add-build-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: #f8f9fa; /* Light grey background */
+  color: #343a40; /* Dark text */
+}
+
+/* Radio Buttons */
+.modal-body form input[type="radio"], .add-form input[type="radio"] {
+  margin-right: 5px;
+}
+
+#footer {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
