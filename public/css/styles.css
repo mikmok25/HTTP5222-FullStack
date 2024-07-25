@@ -76,6 +76,48 @@ form button:hover {
     background-color: #007acc;
 }
 
+/* Navbar Styles */
+#navbar {
+    background-color: #333;
+    padding: 10px 0;
+  }
+  
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  #navbar .logo {
+    height: 40px;
+    margin-right: 20px;
+  }
+  
+  #navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #navbar ul li {
+    margin: 0 15px;
+  }
+  
+  #navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  #navbar ul li a:hover {
+    color: #1e90ff;
+  }
+
 /* Weather Section Styles */
 .weather-section {
   border-bottom: 1px solid #ddd;

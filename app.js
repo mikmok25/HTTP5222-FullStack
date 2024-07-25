@@ -1,7 +1,6 @@
 const express = require("express");
 const axios = require("axios");
 const path = require("path");
-const WeatherNews = require("./models/WeatherNews");
 const { formatDate } = require("./modules");
 
 const app = express();

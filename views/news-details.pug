@@ -12,7 +12,7 @@ block layout-content
 
     p#content= article.content
 
-    a(href='/') Back to news list
+    a(href=`/fetch-data?city=${city}`) Back to news list
 
     script.
         document.addEventListener('DOMContentLoaded', function() {
