@@ -1,0 +1,142 @@
+/* public/css/styles.css */
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+h1,
+h2,
+h3 {
+  color: #333;
+}
+
+a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+#main {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+
+#footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 200px;
+    outline: none;
+}
+
+form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #1e90ff;
+    background-color: #1e90ff;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    outline: none;
+}
+
+form button:hover {
+    background-color: #007acc;
+}
+
+/* Weather Section Styles */
+.weather-section {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.weather-section img {
+  vertical-align: middle;
+}
+
+.weather-section p {
+  margin: 5px 0;
+}
+
+/* 5-Day Forecast Styles */
+.forecast-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 10px;
+}
+
+.forecast-day {
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.forecast-day img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* News Section Styles */
+.news-section {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.news-article {
+  margin-bottom: 20px;
+}
+
+.article-img-container {
+  max-width: 50%;
+  margin: auto;
+}
+
+.article-img-container img {
+  max-width: 500px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  margin: 0 5px;
+}

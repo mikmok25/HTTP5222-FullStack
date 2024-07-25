@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title #{title} | Random Site 
+    link(rel="stylesheet", href="/css/styles.css")
+    block scripts
+      script(src="/js/common.js")
+  body
+
+
+    main#main
+      include weather.pug
+
+      block layout-content
+    footer#footer 
+      div &copy; Copyright HTTP-5222, 2024.

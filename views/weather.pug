@@ -1,0 +1,18 @@
+if weather
+    .weather-section
+        h2 Weather in city of #{city.charAt(0).toUpperCase()+city.slice(1)}
+        div 
+            img(src=`http://openweathermap.org/img/w/${weather.icon}.png`, alt=`${city} ${weather.description}`)
+            div 
+                p Description: #{weather.description}
+                p Temperature: #{weather.temperature} °C
+                p Date: #{weather.date}
+
+        h3 #{city.charAt(0).toUpperCase()+city.slice(1)} 5-Day Forecast 
+        .forecast-section
+            each day in weather.forecast
+                .forecast-day
+                    p Date: #{day.date}
+                    p Description: #{day.description}
+                    p Temperature: #{day.temperature} °C
+                    img(src=`http://openweathermap.org/img/w/${day.icon}.png`, alt=`${day.description}`)

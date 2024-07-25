@@ -1,0 +1,24 @@
+extends layout
+
+block layout-content
+    h1 Weather News App
+    include search-form.pug 
+    if news && news.length > 0
+        h2 Related News
+        .news-section
+            each article in news
+                .news-article
+                    h3
+                        a(href=`/news/${encodeURIComponent(article.url)}?city=${encodeURIComponent(city)}`) #{article.title}
+                    p #{article.description}
+                    if article.urlToImage
+                        img(src=article.urlToImage, alt='Image for article' width='100')
+                    p Published on: #{article.publishedAt}
+        .pagination
+            if hasPreviousPage
+                a(href=`/?page=${currentPage - 1}&city=${encodeURIComponent(city)}`) Previous
+            span Page #{currentPage} of #{totalPages}
+            if hasNextPage
+                a(href=`/?page=${currentPage + 1}&city=${encodeURIComponent(city)}`) Next
+    else
+        p No news found for the weather in #{city}.

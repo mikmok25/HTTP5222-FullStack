@@ -1,0 +1,25 @@
+extends layout
+
+block layout-content
+    - var publishedAt = new Date(article.publishedAt).toLocaleDateString();
+    h1= title
+    
+    if article.urlToImage
+        div.article-img-container 
+            img(src=article.urlToImage, alt='Image for article')
+        p= article.author
+        span Published on: #{publishedAt}
+
+    p#content= article.content
+
+    a(href='/') Back to news list
+
+    script.
+        document.addEventListener('DOMContentLoaded', function() {
+            var contentElement = document.getElementById('content');
+            if (contentElement) {
+                // Replace [<number> chars] with a "See more" link
+                var articleUrl = "#{article.url}";
+                contentElement.innerHTML = contentElement.innerHTML.replace(/\[\+\d+ chars\]/g, '<a href="' + articleUrl + '" target="_blank">See more</a>');
+            }
+        });
