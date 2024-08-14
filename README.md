@@ -11,7 +11,7 @@ Reference: https://www.jefit.com/workout-tips/workout-log-essential-fitness-succ
 
 #### 1. Clone the repo.
 ```sh
-$ git clone https://github.com/mikmok25/workout-log.git
+$ git clone -b Final-Assignment https://github.com/mikmok25/workout-log.git
 ```
 
 #### 2. Open the project in VS code.
