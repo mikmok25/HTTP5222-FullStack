@@ -40,7 +40,11 @@ async function getProducts() {
 }
 async function getCustomBuilds() {
   await connect();
-  return await CustomBuild.find({}).populate("cpu gpu ram ssd");
+  return await CustomBuild.find({})
+    .populate("cpu", "name price imgUrl")
+    .populate("gpu", "name price imgUrl")
+    .populate("ram", "name price imgUrl")
+    .populate("ssd", "name price imgUrl");
 }
 
 async function updateCustomBuild(id, updates) {

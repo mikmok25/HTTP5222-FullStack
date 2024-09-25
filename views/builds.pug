@@ -8,10 +8,26 @@ block layout-content
         .build.card.mb-4
           .card-body
             h2.card-title Build Name: #{build.buildName}
-            p.card-text CPU: #{build.cpu.name} ($#{build.cpu.price})
-            p.card-text GPU: #{build.gpu.name} ($#{build.gpu.price})
-            p.card-text RAM: #{build.ram.name} ($#{build.ram.price})
-            p.card-text SSD: #{build.ssd.name} ($#{build.ssd.price})
+            if build.cpu
+              img(src=(build.cpu.imgUrl ? build.cpu.imgUrl : 'https://i.pinimg.com/1200x/17/22/3e/17223eceba2258293d754117d33afc57.jpg') width="100" alt=build.cpu.name)
+              p.card-text CPU: #{build.cpu.name} ($#{build.cpu.price})
+            else
+              p.card-text CPU: N/A
+            if build.gpu
+              img(src=build.gpu.imgUrl alt=build.gpu.name width="100")
+              p.card-text GPU: #{build.gpu.name} ($#{build.gpu.price})
+            else
+              p.card-text GPU: N/A
+            if build.ram
+              img(src=build.ram.imgUrl alt=build.ram.name width="100")
+              p.card-text RAM: #{build.ram.name} ($#{build.ram.price})
+            else
+              p.card-text RAM: N/A
+            if build.ssd
+              img(src=build.ssd.imgUrl alt=build.ssd.name width="100")
+              p.card-text SSD: #{build.ssd.name} ($#{build.ssd.price})
+            else
+              p.card-text SSD: N/A
             p.card-text Description: #{build.description}
             p.card-text.total-price Total Price: $#{build.totalPrice.toFixed(2)}
             .build-buttons.d-flex.align-items-center.gap-2
